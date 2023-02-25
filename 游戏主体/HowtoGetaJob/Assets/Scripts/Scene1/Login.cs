@@ -14,6 +14,7 @@ public class Login : MonoBehaviour
     public GameObject accHelpInfoGo;
     public GameObject pswHelpInfoGo;
     public GameObject checkBoxGo;
+    public GameObject sealGo;
     string date;
     string curAcc;
     string curPsw;
@@ -23,19 +24,34 @@ public class Login : MonoBehaviour
     bool helpPwdBtnClicked;
     bool checkBoxBtnClicked;
 
+    GraphicRaycaster gr;
+
     void Start()
     {
         // 账号密码正确答案设置
         date = DateTime.Today.ToString("yyyyMMdd");
         curAcc = date;
-        char[] arr = date.ToCharArray();
-        Array.Reverse<char>(arr);
-        curPsw = arr.ToString();
+        curPsw = Revert(date.ToCharArray());
 
         //初始化
         helpAccBtnClicked = false;
         helpPwdBtnClicked = false;
         checkBoxBtnClicked = false;
+
+        gr = this.transform.parent.gameObject.GetComponent<GraphicRaycaster>();
+    }
+
+    string Revert(char[] charArray)
+    {
+        char[] arr = charArray;
+        for (int i = 0,j = arr.Length - 1; i < j; i++, j--)
+        {
+            char temp;
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        return new string(arr);
     }
 
     void Update()
@@ -63,25 +79,61 @@ public class Login : MonoBehaviour
         helpPwdBtnClicked = false;
     }
 
+    void ChangeInteraction(bool state)
+    {
+        gr.enabled = state;
+    }
+
     public void CheckBoxBtnOnClick()
     {
+        ChangeInteraction(false);
         checkBoxBtnClicked = !checkBoxBtnClicked;
         Sprite sprite;
+        Texture2D texture;
         if (checkBoxBtnClicked)
         {
-            sprite = Resources.Load("arts/smallIcon/checkYes1") as Sprite;
+            texture = Resources.Load("arts/smallIcon/checkYes1") as Texture2D;
         }
         else
         {
-            sprite = Resources.Load("arts/smallIcon/checkNo1") as Sprite;
+            texture = Resources.Load("arts/smallIcon/checkNo1") as Texture2D;
         }
+        sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
         checkBoxGo.GetComponent<Image>().sprite = sprite;
-        HandMove();
+        if (checkBoxBtnClicked)
+        {
+            StartCoroutine(SealMoveOut());
+        }
+        else
+        {
+            StartCoroutine(SealMoveBack());
+        }
     }
 
-    void HandMove()
+    IEnumerator SealMoveOut()
     {
+        //封条出来
+        Transform trans = sealGo.transform;
+        while(trans.localPosition.x > -338)
+        {
+            sealGo.transform.Translate(Vector3.left * 800 * Time.deltaTime);
+            yield return null;
+        }
+        trans.localPosition = new Vector3(-338, trans.localPosition.y, 0);
+        ChangeInteraction(true);
+    }
 
+    IEnumerator SealMoveBack()
+    {
+        //封条回去
+        Transform trans = sealGo.transform;
+        while (trans.localPosition.x < 812)
+        {
+            sealGo.transform.Translate(Vector3.right * 800 * Time.deltaTime);
+            yield return null;
+        }
+        trans.localPosition = new Vector3(812, trans.localPosition.y, 0);
+        ChangeInteraction(true);
     }
 
     public void StartBtnOnClick()
