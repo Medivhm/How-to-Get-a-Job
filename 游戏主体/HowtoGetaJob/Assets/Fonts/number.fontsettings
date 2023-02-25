@@ -30,8 +30,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 10.88
-      height: -28.16
+      width: 8.704
+      height: -22.528
     advance: 20
     flipped: 0
   - serializedVersion: 2
@@ -46,8 +46,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 21.76
-      height: -29.44
+      width: 17.408
+      height: -23.552
     advance: 30
     flipped: 0
   - serializedVersion: 2
@@ -62,8 +62,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 21.12
-      height: -29.44
+      width: 16.896
+      height: -23.552
     advance: 30
     flipped: 0
   - serializedVersion: 2
@@ -78,8 +78,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 23.04
-      height: -35.84
+      width: 18.432
+      height: -28.672
     advance: 32
     flipped: 0
   - serializedVersion: 2
@@ -94,8 +94,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 24.96
-      height: -29.44
+      width: 19.968
+      height: -23.552
     advance: 28
     flipped: 0
   - serializedVersion: 2
@@ -110,8 +110,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 21.76
-      height: -30.08
+      width: 17.408
+      height: -24.064
     advance: 30
     flipped: 0
   - serializedVersion: 2
@@ -126,8 +126,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 20.48
-      height: -30.72
+      width: 16.384
+      height: -24.576
     advance: 28
     flipped: 0
   - serializedVersion: 2
@@ -142,8 +142,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 24.32
-      height: -29.44
+      width: 19.456
+      height: -23.552
     advance: 30
     flipped: 0
   - serializedVersion: 2
@@ -158,8 +158,8 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 21.76
-      height: -32.64
+      width: 17.408
+      height: -26.112
     advance: 30
     flipped: 0
   - serializedVersion: 2
@@ -174,9 +174,25 @@ Font:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 23.04
-      height: -28.8
+      width: 18.432
+      height: -23.04
     advance: 32
+    flipped: 0
+  - serializedVersion: 2
+    index: 42
+    uv:
+      serializedVersion: 2
+      x: 0.95298374
+      y: 0.421875
+      width: 0.047016274
+      height: 0.515625
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20.8
+      height: -26.4
+    advance: 30
     flipped: 0
   m_KerningValues: []
   m_PixelScale: 0.1
