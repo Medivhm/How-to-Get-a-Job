@@ -22,7 +22,7 @@ public class Scene1Controller : MonoBehaviour
             vpGo.SetActive(false);
             loginImageGo.SetActive(true);
         };
-        while (!vp.isPrepared)
+        if (!vp.isPrepared)
         {
             yield return new WaitForSeconds(0.5f);
         }

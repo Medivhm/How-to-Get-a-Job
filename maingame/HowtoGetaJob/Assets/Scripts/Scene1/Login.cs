@@ -24,6 +24,9 @@ public class Login : MonoBehaviour
     bool helpPwdBtnClicked;
     bool checkBoxBtnClicked;
 
+
+    Vector3 sealLocalPos;
+
     GraphicRaycaster gr;
 
     void Start()
@@ -39,6 +42,8 @@ public class Login : MonoBehaviour
         checkBoxBtnClicked = false;
 
         gr = this.transform.parent.gameObject.GetComponent<GraphicRaycaster>();
+
+        sealLocalPos = this.sealGo.transform.localPosition;
     }
 
     string Revert(char[] charArray)
@@ -127,12 +132,12 @@ public class Login : MonoBehaviour
     {
         //∑‚Ãıªÿ»•
         Transform trans = sealGo.transform;
-        while (trans.localPosition.x < 812)
+        while (trans.localPosition.x < this.sealLocalPos.x)
         {
             sealGo.transform.Translate(Vector3.right * 800 * Time.deltaTime);
             yield return null;
         }
-        trans.localPosition = new Vector3(812, trans.localPosition.y, 0);
+        trans.localPosition = new Vector3(this.sealLocalPos.x, trans.localPosition.y, 0);
         ChangeInteraction(true);
     }
 
