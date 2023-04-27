@@ -1,7 +1,8 @@
+//#define DEBUG_WINDOW
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Login : MonoBehaviour
@@ -49,7 +50,7 @@ public class Login : MonoBehaviour
     string Revert(char[] charArray)
     {
         char[] arr = charArray;
-        for (int i = 0,j = arr.Length - 1; i < j; i++, j--)
+        for (int i = 0, j = arr.Length - 1; i < j; i++, j--)
         {
             char temp;
             temp = arr[i];
@@ -119,7 +120,7 @@ public class Login : MonoBehaviour
     {
         //·âÌõ³öÀ´
         Transform trans = sealGo.transform;
-        while(trans.localPosition.x > -338)
+        while (trans.localPosition.x > -338)
         {
             sealGo.transform.Translate(Vector3.left * 800 * Time.deltaTime);
             yield return null;
@@ -141,10 +142,16 @@ public class Login : MonoBehaviour
         ChangeInteraction(true);
     }
 
+
     public void StartBtnOnClick()
     {
         Debug.Log(account.text + "  |  " + password.text);
-        if(account.text.Equals(curAcc) && password.text.Equals(curPsw))
+
+#if DEBUG_WINDOW
+        DebugWindow.LogTool.Log(account.text + "  |  " + password.text);
+#endif
+
+        if (account.text.Equals(curAcc) && password.text.Equals(curPsw))
         {
             GotoNextScene();
             Debug.Log("Scene1 is over");
@@ -166,11 +173,8 @@ public class Login : MonoBehaviour
     }
 
 
-
-
-
     void GotoNextScene()
     {
-
+        SceneManager.LoadScene(1);
     }
 }

@@ -178,22 +178,6 @@ Font:
       height: -23.04
     advance: 32
     flipped: 0
-  - serializedVersion: 2
-    index: 42
-    uv:
-      serializedVersion: 2
-      x: 0.95298374
-      y: 0.421875
-      width: 0.047016274
-      height: 0.515625
-    vert:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 20.8
-      height: -26.4
-    advance: 30
-    flipped: 0
   m_KerningValues: []
   m_PixelScale: 0.1
   m_FontData: 

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -22,7 +21,7 @@ public class Scene1Controller : MonoBehaviour
             vpGo.SetActive(false);
             loginImageGo.SetActive(true);
         };
-        if (!vp.isPrepared)
+        while (!vp.isPrepared)
         {
             yield return new WaitForSeconds(0.5f);
         }
@@ -31,6 +30,6 @@ public class Scene1Controller : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 }
