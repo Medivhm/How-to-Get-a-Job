@@ -1,4 +1,4 @@
-﻿# This .gitignore file should be placed at the root of your Unity project directory
+# This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
@@ -72,3 +72,4 @@ crashlytics-build.properties
 /maingame/HowtoGetaJob/[Aa]ssets/[Ss]treamingAssets/aa/*
 /maingame/HowtoGetaJob/Assets/Videos/loginVideo/loginVideo.mp4.meta
 *.meta
+打包的地方/
